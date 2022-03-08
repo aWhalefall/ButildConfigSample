@@ -19,8 +19,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        missingDimensionStrategy 'minApi', 'minApi18', 'minApi23'
     }
 
     sourceSets {
@@ -48,6 +46,7 @@ android {
             applicationIdSuffix ".debug"
             debuggable true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            matchingFallbacks =['debug']
         }
         staging {
             initWith debug
@@ -58,25 +57,37 @@ android {
             // "staging" build type. You may specify as many fallbacks as you
             // like, and the plugin selects the first build type that's
             // available in the dependency.
-            matchingFallbacks =['lib1','debug']
+            matchingFallbacks =['release','debug']
         }
 
     }
 
-    flavorDimensions "version"
+    flavorDimensions "minApi", "version"
 
     productFlavors {
+
+        minApi23 {
+            dimension "minApi"
+            //missingDimensionStrategy('Api', 'minApi21', 'minApi24')
+            minSdkVersion 23
+            // To ensure the target device receives the version of the app with
+            // the highest compatible API level, assign version codes in increasing
+            // value with API level. To learn more about assigning version codes to
+            // support app updates and uploading to Google Play, read Multiple APK Support
+            versionNameSuffix "-minApi24"
+        }
+
         free {
             dimension "version"
+            //missingDimensionStrategy('Api', 'minApi21', 'minApi24')
             applicationIdSuffix ".demo"
             versionNameSuffix "-demo"
         }
         pay {
             dimension "version"
+            //missingDimensionStrategy('Api', 'minApi21', 'minApi24')
             applicationIdSuffix ".full"
             versionNameSuffix "-full"
-            matchingFallbacks = ['free', 'minApi24']
-
         }
 
     }
