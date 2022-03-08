@@ -19,6 +19,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        missingDimensionStrategy('Api', 'minApi21', 'minApi24')
     }
 
     sourceSets {
@@ -75,6 +76,7 @@ android {
             // value with API level. To learn more about assigning version codes to
             // support app updates and uploading to Google Play, read Multiple APK Support
             versionNameSuffix "-minApi24"
+
         }
 
         free {
@@ -82,12 +84,15 @@ android {
             //missingDimensionStrategy('Api', 'minApi21', 'minApi24')
             applicationIdSuffix ".demo"
             versionNameSuffix "-demo"
+            missingDimensionStrategy('Api', 'minApi24')
         }
         pay {
             dimension "version"
             //missingDimensionStrategy('Api', 'minApi21', 'minApi24')
             applicationIdSuffix ".full"
             versionNameSuffix "-full"
+            missingDimensionStrategy('Api', 'minApi21')
+
         }
 
     }
