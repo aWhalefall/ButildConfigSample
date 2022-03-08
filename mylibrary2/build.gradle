@@ -27,6 +27,33 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    flavorDimensions 'minApi'
+    productFlavors {
+        free {
+            dimension "minApi"
+            applicationIdSuffix ".demo"
+            versionNameSuffix "-demo"
+        }
+        minApi24 {
+            dimension "minApi"
+            minSdkVersion 24
+            // To ensure the target device receives the version of the app with
+            // the highest compatible API level, assign version codes in increasing
+            // value with API level. To learn more about assigning version codes to
+            // support app updates and uploading to Google Play, read Multiple APK Support
+            versionNameSuffix "-minApi24"
+        }
+        minApi21 {
+            dimension "minApi"
+            minSdkVersion 21
+            // To ensure the target device receives the version of the app with
+            // the highest compatible API level, assign version codes in increasing
+            // value with API level. To learn more about assigning version codes to
+            // support app updates and uploading to Google Play, read Multiple APK Support
+            versionNameSuffix "-minApi24"
+        }
+
+    }
 }
 
 dependencies {

@@ -61,5 +61,8 @@ sourceSets {
 类notfound异常。
 
 
+7.app 与 库中维度相同，但是app中变体多于库中变体。即app中变体库中不存在。matchingFallbacks = [库中变体，库中变体]策略
+
+
 
 

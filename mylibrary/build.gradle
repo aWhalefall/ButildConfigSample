@@ -24,7 +24,7 @@ android {
             applicationIdSuffix ".debugStaging"
         }
     }
-    //库中包含app中不包含的变种
+    //库中包含app中不包含的变种，则在app中进行回滚操作
     flavorDimensions 'api',"tier"
 
     productFlavors {
