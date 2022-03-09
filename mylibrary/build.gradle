@@ -21,7 +21,6 @@ android {
         }
         lib1 {
             initWith release
-            applicationIdSuffix ".debugStaging"
         }
     }
     //库中包含app中不包含的变种，则在app中进行回滚操作
