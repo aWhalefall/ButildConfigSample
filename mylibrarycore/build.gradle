@@ -27,6 +27,20 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    flavorDimensions 'version1'
+
+    productFlavors {
+        free {
+            dimension "version1"
+            minSdkVersion 23
+        }
+        paid {
+            dimension "version1"
+            minSdkVersion 21
+        }
+
+    }
 }
 
 dependencies {

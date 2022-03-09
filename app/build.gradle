@@ -53,11 +53,6 @@ android {
             initWith debug
             manifestPlaceholders = [hostName:"internal.example.com"]
             applicationIdSuffix ".debugStaging"
-            // Specifies a sorted list of fallback build types that the
-            // plugin should try to use when a dependency does not include a
-            // "staging" build type. You may specify as many fallbacks as you
-            // like, and the plugin selects the first build type that's
-            // available in the dependency.
             matchingFallbacks =['release','debug']
         }
 
@@ -92,7 +87,6 @@ android {
             applicationIdSuffix ".full"
             versionNameSuffix "-full"
             missingDimensionStrategy('Api', 'minApi21')
-
         }
 
     }
