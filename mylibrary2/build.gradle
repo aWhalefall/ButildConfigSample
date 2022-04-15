@@ -7,11 +7,11 @@ android {
     compileSdk 31
 
     defaultConfig {
-        minSdk 21
+        minSdk 24
         targetSdk 31
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-        missingDimensionStrategy('version1', 'free')
+        missingDimensionStrategy('libcore', 'free')
     }
 
     buildTypes {
@@ -19,6 +19,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -33,17 +34,15 @@ android {
     productFlavors {
         minApi21 {
             dimension "Api"
-            minSdkVersion 21
-            versionNameSuffix "-minApi24"
+            minSdkVersion 24
+            missingDimensionStrategy('libcore', 'freeCore')
         }
 
         minApi24 {
             dimension "Api"
             minSdkVersion 24
-            versionNameSuffix "-minApi24"
+            missingDimensionStrategy('libcore', 'freeCore')
         }
-
-
     }
 }
 

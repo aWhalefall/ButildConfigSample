@@ -7,19 +7,14 @@ android {
     compileSdk 31
 
     defaultConfig {
-        minSdk 21
+        minSdk 24
         targetSdk 31
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -28,16 +23,14 @@ android {
         jvmTarget = '1.8'
     }
 
-    flavorDimensions 'version1'
+    flavorDimensions 'libcore'
 
     productFlavors {
-        free {
-            dimension "version1"
-            minSdkVersion 23
+        freeCore {
+            dimension "libcore"
         }
-        paid {
-            dimension "version1"
-            minSdkVersion 21
+        paidCore {
+            dimension "libcore"
         }
 
     }
