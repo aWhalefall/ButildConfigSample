@@ -74,7 +74,7 @@ sourceSets {
 
 
 
-8. module 传递依赖。 app ->lib2->core
+##### 8. module 传递依赖。 app ->lib2->core
 
  场景. core中的维度在app中不存在。使用google官方策略三
 
@@ -89,7 +89,7 @@ sourceSets {
 
 需要在app module 下设置维度  missingDimensionStrategy("维度","变体1","变体2").
 
-
+```java
 defaultConfig {
     applicationId "com.kuaidao.butildconfigsample"
     minSdk 24
@@ -100,6 +100,7 @@ defaultConfig {
     missingDimensionStrategy('Api', 'minApi21', 'minApi24')
     missingDimensionStrategy('libcore', 'freeCore', 'paidCore')
 }
+```
 
 这样app就会有两个missingDimensionStrategy，分别针对lib2 ，和 libCore
 
